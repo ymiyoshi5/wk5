@@ -1,0 +1,111 @@
+/* --- Base (Mobile First) --- */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gallery img {
+  flex-shrink: 1;
+  flex-grow: 1;
+  flex-basis: 90%;  /* flex-basis practice */
+}
+
+/* STUDENT CODE STARTS HERE */
+
+@media(min-width: 768px) {
+  .grid {
+    grid-template: 45% 45%;
+    gap: 10px;
+    justify-items: center;
+    
+  }
+
+  .grid > div:nth-child(3n){
+    grid-column: 1/-1;
+    width: 50%;
+  }
+
+  .grid > div:nth-child(even) img{
+    border: none;
+    filter: none;
+  }
+
+  .gallery {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .gallery img{
+    flex: 1 1 30%;
+  }
+
+  .grid div:nth-child(even){
+    background: red;
+  }
+}
+
+@media(min-width: 1200px) {
+
+  .grid{
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 10px;
+  }
+
+  .gallery{
+    justify-content: space-between;
+  }
+
+  .gallery > img {
+    flex: 1 1 200px;
+  }
+
+  .grid > div:hover{
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+}
+
+@media print{
+  body {
+  background-color: white;
+  color: black;
+  }
+
+  .gallery{
+    display: none;
+  }
+
+  .grid {
+    grid-column: 1fr;
+  }
+
+  .grid > div {
+    border: 2px red solid;
+    page-break-inside: avoid;
+  }
+  
+
+}
+
+@media(prefers-reduced-motion: true){
+  .gallery img:hover, .grid > div:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+@media (prefers-color-scheme: dark){
+  body {
+    background: #111;
+    color: #eee;
+  }
+  grid > div {
+    background: #111;
+    border: 1px #EB5B00 solid;
+  }
+}

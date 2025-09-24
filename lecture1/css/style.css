@@ -1,0 +1,87 @@
+  section{
+    width: 90%;
+    margin: auto;
+    padding: 10px;
+    border: 2px solid black;
+    background-color: lightgray;
+  }
+
+  /* Character card styling */
+  .grid div {
+    background: #f2f2f2;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid blue;
+  }
+  
+  /* Images */
+  .grid img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 25px;
+  }
+
+  .gallery img {
+    border: 3px yellow dashed;
+    border-radius: 50px;
+
+  }
+  
+  /* Headings */
+  .character h3 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #333;
+  }
+    
+  .grid dt {
+    font-weight: bold;
+    color: #444;
+  }
+  
+  .grid dd {
+    margin: 0;
+    color: #555;
+  }
+  
+
+  /* **** Student code starts here */
+
+dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  justify-items: start;
+  gap: 10px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  padding: 15px;
+
+  box-sizing: content-box;
+
+}
+
+div:nth-child(even){
+  filter: grayscale(100%);
+}
+
+div:nth-child(even) img{
+  border: black 25px solid;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+
+}
+
+.gallery > img:hover{
+  transform: scale(1.1);
+}
